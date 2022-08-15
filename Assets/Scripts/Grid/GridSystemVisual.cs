@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class GridSystemVisual : MonoBehaviour
 {
+
     public static GridSystemVisual Instance { get; private set; }
+
 
     [SerializeField] private Transform gridSystemVisualSinglePrefab;
 
+
     private GridSystemVisualSingle[,] gridSystemVisualSingleArray;
+
 
     private void Awake()
     {
         if (Instance != null)
         {
-            Debug.LogError("There's more than one UnitActionSystem! " + transform + " - " + Instance);
+            Debug.LogError("There's more than one GridSystemVisual! " + transform + " - " + Instance);
             Destroy(gameObject);
             return;
         }
@@ -26,23 +30,23 @@ public class GridSystemVisual : MonoBehaviour
         gridSystemVisualSingleArray = new GridSystemVisualSingle[
             LevelGrid.Instance.GetWidth(),
             LevelGrid.Instance.GetHeight()
-            
-            ];
+        ];
+
         for (int x = 0; x < LevelGrid.Instance.GetWidth(); x++)
         {
             for (int z = 0; z < LevelGrid.Instance.GetHeight(); z++)
             {
                 GridPosition gridPosition = new GridPosition(x, z);
-                Transform gridSystemVisualSingletransform =
+
+                Transform gridSystemVisualSingleTransform =
                     Instantiate(gridSystemVisualSinglePrefab, LevelGrid.Instance.GetWorldPosition(gridPosition), Quaternion.identity);
 
-
-                gridSystemVisualSingleArray[x, z] = gridSystemVisualSingletransform.GetComponent<GridSystemVisualSingle>();
+                gridSystemVisualSingleArray[x, z] = gridSystemVisualSingleTransform.GetComponent<GridSystemVisualSingle>();
             }
         }
     }
 
-    public void Update()
+    private void Update()
     {
         UpdateGridVisual();
     }
@@ -70,12 +74,10 @@ public class GridSystemVisual : MonoBehaviour
     {
         HideAllGridPosition();
 
-        Unit selectedUnit = UnitActionSystem.Instance.GetSelectedUnit();
+        BaseAction selectedAction = UnitActionSystem.Instance.GetSelectedAction();
 
         ShowGridPositionList(
-            selectedUnit.GetMoveAction().GetValidActionGridPositionList());
+            selectedAction.GetValidActionGridPositionList());
     }
-
-
 
 }
