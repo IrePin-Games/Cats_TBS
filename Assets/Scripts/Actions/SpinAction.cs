@@ -48,13 +48,11 @@ public class SpinAction : BaseAction
         {
             unitGridPosition
         };
-
     }
 
     public override int GetActionPointsCost()
     {
-        return 1;
+        return 2;
     }
-
 
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class GridSystemVisualSingle : MonoBehaviour
 {
+
     [SerializeField] private MeshRenderer meshRenderer;
+
 
     public void Show()
     {
@@ -17,4 +19,3 @@ public class GridSystemVisualSingle : MonoBehaviour
     }
 
 }
-
