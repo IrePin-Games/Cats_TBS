@@ -1,18 +1,42 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TurnSystem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public static TurnSystem Instance { get; private set; }
+
+
+    public event EventHandler OnTurnChanged;
+
+
+    private int turnNumber = 0;
+
+
+    private void Awake()
     {
-        
+        if (Instance != null)
+        {
+            Debug.LogError("There's more than one TurnSystem! " + transform + " - " + Instance);
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void NextTurn()
     {
-        
+        turnNumber++;
+
+        OnTurnChanged?.Invoke(this, EventArgs.Empty);
     }
+
+    public int GetTurnNumber()
+    {
+        return turnNumber;
+    }
+
 }

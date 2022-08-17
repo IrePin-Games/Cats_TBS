@@ -92,9 +92,6 @@ public class MoveAction : BaseAction
     }
 
 
-    public override string GetActionName()
-    {
-        return "Move";
-    }
+    public override string GetActionName() => "move";
 
 }

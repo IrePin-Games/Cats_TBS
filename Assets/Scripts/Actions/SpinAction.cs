@@ -37,7 +37,7 @@ public class SpinAction : BaseAction
 
     public override string GetActionName()
     {
-        return "????????";
+        return "Spin";
     }
 
     public override List<GridPosition> GetValidActionGridPositionList()
@@ -53,7 +53,7 @@ public class SpinAction : BaseAction
 
     public override int GetActionPointsCost()
     {
-        return 2;
+        return 1;
     }
 
 
