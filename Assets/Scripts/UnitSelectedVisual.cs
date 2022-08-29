@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class UnitSelectedVisual : MonoBehaviour
 {
+
     [SerializeField] private Unit unit;
 
     private MeshRenderer meshRenderer;
@@ -16,11 +17,12 @@ public class UnitSelectedVisual : MonoBehaviour
 
     private void Start()
     {
-        UnitActionSystem.Instance.OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChange;
+        UnitActionSystem.Instance.OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChanged;
+
         UpdateVisual();
     }
 
-    private void UnitActionSystem_OnSelectedUnitChange(object sender, EventArgs empty)
+    private void UnitActionSystem_OnSelectedUnitChanged(object sender, EventArgs empty)
     {
         UpdateVisual();
     }
@@ -36,4 +38,12 @@ public class UnitSelectedVisual : MonoBehaviour
             meshRenderer.enabled = false;
         }
     }
+
+    private void OnDestroy()
+    {
+        UnitActionSystem.Instance.OnSelectedUnitChanged -= UnitActionSystem_OnSelectedUnitChanged;
+    }
+
+
+
 }
