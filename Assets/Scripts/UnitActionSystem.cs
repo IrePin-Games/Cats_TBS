@@ -58,7 +58,6 @@ public class UnitActionSystem : MonoBehaviour
 
         if (TryHandleUnitSelection())
         {
-
             return;
         }
 
@@ -120,7 +119,7 @@ public class UnitActionSystem : MonoBehaviour
 
                     if (unit.IsEnemy())
                     {
-                        //clicked on an enemy
+                        // Clicked on an Enemy
                         return false;
                     }
 
@@ -137,7 +136,7 @@ public class UnitActionSystem : MonoBehaviour
     {
         selectedUnit = unit;
 
-        SetSelectedAction(unit.GetMoveAction());
+        SetSelectedAction(unit.GetAction<MoveAction>());
 
         OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
     }

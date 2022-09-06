@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12,8 +12,7 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -54,7 +53,7 @@ Material:
     - _BaseColor: {r: 0.06228374, g: 0.8320726, b: 0.9411765, a: 0}
     - _Opacity: {r: 0.41911763, g: 0.41911763, b: 0.41911763, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &7438612582392331073
+--- !u!114 &3428011615245233494
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

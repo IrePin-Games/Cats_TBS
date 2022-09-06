@@ -15,7 +15,7 @@ public class SpinAction : BaseAction
         {
             return;
         }
-
+        
         float spinAddAmount = 360f * Time.deltaTime;
         transform.eulerAngles += new Vector3(0, spinAddAmount, 0);
 
@@ -28,9 +28,9 @@ public class SpinAction : BaseAction
 
     public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
     {
-        ActionStart(onActionComplete);
-
         totalSpinAmount = 0f;
+
+        ActionStart(onActionComplete);
     }
 
 
@@ -51,7 +51,16 @@ public class SpinAction : BaseAction
 
     public override int GetActionPointsCost()
     {
-        return 2;
+        return 1;
+    }
+
+    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    {
+        return new EnemyAIAction
+        {
+            gridPosition = gridPosition,
+            actionValue = 0,
+        };
     }
 
 }

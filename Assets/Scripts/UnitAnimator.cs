@@ -39,7 +39,7 @@ public class UnitAnimator : MonoBehaviour
     {
         animator.SetTrigger("Shoot");
 
-        Transform bulletProjectileTransform =
+        Transform bulletProjectileTransform = 
             Instantiate(bulletProjectilePrefab, shootPointTransform.position, Quaternion.identity);
 
         BulletProjectile bulletProjectile = bulletProjectileTransform.GetComponent<BulletProjectile>();

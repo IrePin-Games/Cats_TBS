@@ -27,8 +27,7 @@ public class ActionBusyUI : MonoBehaviour
         if (isBusy)
         {
             Show();
-        }
-        else
+        } else
         {
             Hide();
         }
