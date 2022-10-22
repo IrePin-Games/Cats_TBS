@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelScripting : MonoBehaviour
 {
 
-    [SerializeField] private List<GameObject> hider1List;
+    /*[SerializeField] private List<GameObject> hider1List;
     [SerializeField] private List<GameObject> hider2List;
     [SerializeField] private List<GameObject> hider3List;
     [SerializeField] private List<GameObject> enemy1List;
@@ -47,5 +47,5 @@ public class LevelScripting : MonoBehaviour
             gameObject.SetActive(isActive);
         }
     }
-
+*/
 }
